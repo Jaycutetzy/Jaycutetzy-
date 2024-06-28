@@ -1,1 +1,74 @@
+<!DOCTYPE html>
+   <title> My Homepage </title>
+   <head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+   </head>
+   <body> 
+       <div class="container">
+          <div class="row">
+             <div class="col-4">
+               <img src="1.jpg" class="img-thumbnail" style="width:200px;height:300px;"/> <br>
+               <button class="btn btn-primary" type= "button" id= "btnLike1" > Like </button>
+               <output id="countLikes1">0</output>
+               <button class="btn btn-primary" type="button" id="btndisLike1"> DisLike </button>
+	       <output id="countdisLikes1">0</output>
+             </div>
+             <div class="col-4">
+               <img src="inasal.jpg" class="img-thumbnail" style="width:200px;height:300px;"/> <br>
+               <button class="btn btn-primary" type= "button" id= "btnLike2" > Like </button>
+               <output id="countLikes2">0</output>
+               <button class="btn btn-primary" type="button" id="btndisLike2"> DisLike </button>
+	       <output id="countdisLikes2">0</output>
+             </div>
+	     <div class="col-4">
+	       Comments <br>
+               <input class="form-control" type="text" id="comment"/>
+	       <button class="btn btn-success" id="submit"/> Submit </button>
+		  <textarea class="form-control" id="commentbox" rows="24"></textarea>
+             </div>
+          </div>
+       </div>
+      <script src="index.js"></script>
+   </body>
+</html>
+const btnLike1 = document.getElementById("btnLike1")
+const btnLike2 = document.getElementById("btnLike2")
+const countLikes1 = document.getElementById("countLikes1")
+const countLikes2 = document.getElementById("countLikes2")
 
+const btndisLike1 = document.getElementById("btndisLike1")
+const btndisLike2 = document.getElementById("btndisLike2")
+const countdisLikes1 = document.getElementById("countdisLikes1")
+const countdisLikes2 = document.getElementById("countdisLikes2")
+
+const comment = document.getElementById("comment")
+const submit = document.getElementById("submit")
+const commentbox = document.getElementById("commentbox")
+function submitComment(){
+  commentbox.textContent += comment.value.toString() + "\n"
+  comment.value="";
+}
+submit.addEventListener("click",submitComment)
+
+
+function hitLikes1() {
+  let totalLikes1 = parseInt(countLikes1.value) + 1
+  countLikes1.textContent = totalLikes1.toString()
+}
+function hitLikes2() {
+  let totalLikes2 = parseInt(countLikes2.value) + 1
+  countLikes2.textContent = totalLikes2.toString()
+}
+btnLike1.addEventListener("click",hitLikes1)
+btnLike2.addEventListener("click",hitLikes2)
+function hitdisLikes1() {
+  let totaldisLikes1 = parseInt(countdisLikes1.value) + 1
+  countdisLikes1.textContent = totaldisLikes1.toString()
+}
+function hitdisLikes2() {
+  let totaldisLikes2 = parseInt(countdisLikes2.value) + 1
+  countdisLikes2.textContent = totaldisLikes2.toString()
+}
+btndisLike1.addEventListener("click",hitdisLikes1)
+btndisLike2.addEventListener("click",hitdisLikes2)
